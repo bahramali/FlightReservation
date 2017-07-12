@@ -1,9 +1,12 @@
 package ui;
 
+import models.Customer;
+
 public class Main {
 	
 	public static void main(String[] args) {
-		System.out.print("Hello Mac");
-		System.out.println("Hello from Carro");
+
+		Customer customer = new Customer("caroline ", " br12345");
+		
 	}
 }
