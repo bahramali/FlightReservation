@@ -5,11 +5,11 @@ public class Seat {
 	private TypeOfSeat typeOfSeat;
 	private boolean valid;
 	
-	public Seat(String name,TypeOfSeat typeOfSeat,boolean valid)
+	public Seat(String name,TypeOfSeat typeOfSeat)
 	{
 		this.name = name;
 		this.typeOfSeat = typeOfSeat;
-		this.valid = valid;
+		this.valid = true; //all seat from begin are valid.
 	}
 
 	public String getName() {
