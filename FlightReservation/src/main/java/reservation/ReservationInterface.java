@@ -14,6 +14,6 @@ public interface ReservationInterface {
 
 	public abstract LocalDate getStartDate(); 
 	
-	public abstract LocalDate getArriveDate();getAllReservations
+	public abstract LocalDate getArriveDate();
 
 }
