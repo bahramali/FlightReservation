@@ -6,7 +6,7 @@ public class Reservation implements ReservationInterface{
 
 	@Override
 	public List<Reservation> getAllReservations() {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
