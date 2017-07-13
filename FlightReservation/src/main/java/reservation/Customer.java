@@ -1,10 +1,11 @@
-package models;
+package reservation;
 
 public class Customer {
 
 	private String name;
 	private String passNumber;
 
+	
 	
 	
 	public Customer(String name, String passNumber) {
