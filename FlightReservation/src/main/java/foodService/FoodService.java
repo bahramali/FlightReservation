@@ -1,4 +1,4 @@
-package models;
+package foodService;
 
 public class FoodService {
 	
