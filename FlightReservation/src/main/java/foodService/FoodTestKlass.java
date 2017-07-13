@@ -11,7 +11,7 @@ public class FoodTestKlass {
 		ArrayList<Food> ordered = h.FoodStarter();
 		
 		
-		for (Iterator iterator = ordered.iterator(); iterator.hasNext();) {
+		for (Iterator<Food> iterator = ordered.iterator(); iterator.hasNext();) {
 			Food food = (Food) iterator.next();
 			
 			System.out.println(food.getFoodItem() + " " + food.getItemPrice());

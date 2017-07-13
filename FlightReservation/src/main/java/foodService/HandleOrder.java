@@ -16,31 +16,37 @@ FoodHandler f = new FoodHandler();
 		boolean ordering = true;
 		while (ordering) {
 			System.out.println("välj F första eller E eko food");
-			String klass = scan.next();
+			String sectionClass = scan.next();
 
-			switch (klass) {
+			switch (sectionClass) {
 
 			case "E": {
 
-				System.out.println("Välj en Meny");
-				System.out.println("1. En Happy Meal");
+				System.out.println("Welcome what would you lika to order"
+						+ "\n1. Fish & Chips - 79 kr"
+						+ "\n2. Greek salad - 65 kr"
+						+ "\n3. Beer - 39 kr"
+						+ "\n4. CocaCola - 25 kr");
 
 				menuOption = scan.nextInt();
 
 				switch (menuOption) {
 				case 1:
-					System.out.println("En happy meal består av en hamburgare och läsk för 25kr");
-					f.getItemList().add(new Food("Hamburgare", 15));
-					f.getItemList().add(new Food("Läsk", 10));	
+					System.out.println("You've ordered Fish & Chips");
+					f.getItemList().add(new Food("Fish & Chips", 79));					
 					ordering = false;
 					break;
 				case 2:
+					System.out.println("You've ordered a Greek salad");
+					f.getItemList().add(new Food("Greek salad", 55));
 					break;
 				case 3:
+					System.out.println("You've ordered a Beer");
+					f.getItemList().add(new Food("Beer", 39));
 					break;
 				case 4:
-					break;
-				case 5:
+					System.out.println("You've ordered a CocaCola");
+					f.getItemList().add(new Food("CocaCola", 25));	
 					break;
 				default:
 					System.out.println("Invalid option.");

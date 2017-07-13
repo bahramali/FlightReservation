@@ -18,7 +18,7 @@ public class FoodHandler {
 	
 	
 	public static void calculateTotalPrice() {
-		for (Iterator iterator = itemList.iterator(); iterator.hasNext();) {
+		for (Iterator<Food> iterator = itemList.iterator(); iterator.hasNext();) {
 			Food food = (Food) iterator.next();
 			totalPrice = totalPrice + food.getItemPrice();
 			
