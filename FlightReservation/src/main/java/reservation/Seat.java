@@ -1,4 +1,6 @@
-package models;
+package reservation;
+
+import models.TypeOfSeat;
 
 public class Seat {
 	private String name;
