@@ -6,14 +6,7 @@ import java.util.List;
 public interface ReservationInterface {
 
 	
-	public abstract List<Reservation> getAllReservations();
+	public abstract List<ReserveSeat> getAllReservations();
 	
-	public abstract City getFrom();
-
-	public abstract City getTo(); 
-
-	public abstract LocalDate getStartDate(); 
-	
-	public abstract LocalDate getArriveDate();
 
 }
