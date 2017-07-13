@@ -2,7 +2,6 @@ package reservation;
 
 import java.util.*;
 
-import reservation.*;
 
 public class Flight {
 	private LinkedList<Integer> listOfFreeEconomyClassSeats;
