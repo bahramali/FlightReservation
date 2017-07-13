@@ -1,6 +1,8 @@
-import java.util.LinkedList;
+package reservation;
 
-import reservation.Airplane;
+import java.util.*;
+
+import reservation.*;
 
 public class Flight {
 	private LinkedList<Integer> listOfFreeEconomyClassSeats;
