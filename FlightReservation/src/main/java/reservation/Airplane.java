@@ -5,14 +5,14 @@ public class Airplane {
 	private int MaxNumberOfFirstClassSeats;
 
 	public Airplane(int maxNumberOfEconomyClassSeats, int maxNumberOfFirstClassSeats) {
-		super();
+
 		this.MaxNumberOfEconomyClassSeats = maxNumberOfEconomyClassSeats;
 		this.MaxNumberOfFirstClassSeats = maxNumberOfFirstClassSeats;		
 
 	}
 
 	public Airplane() {
-		super();
+
 		this.MaxNumberOfEconomyClassSeats = 5;
 		this.MaxNumberOfFirstClassSeats = 5;
 	}
