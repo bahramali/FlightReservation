@@ -26,13 +26,13 @@ public class Flight {
 		this.arriveDate=LocalDate.now();
 		int count=1;
 		this.listOfFreeFirstClassSeats=new LinkedList<Integer>();
-		while (count<MaxNumberOfFirstClassSeats) {
+		while (count<=MaxNumberOfFirstClassSeats) {
 		this.listOfFreeFirstClassSeats.add(count++);
 		}
 		
 		int sum =  this.MaxNumberOfEconomyClassSeats+this.MaxNumberOfFirstClassSeats;
 		this.listOfFreeEconomyClassSeats=new LinkedList<Integer>();
-		while (count<sum) {
+		while (count<=sum) {
 			this.listOfFreeEconomyClassSeats.add(count++);		
 		}
 	}
@@ -48,13 +48,13 @@ public class Flight {
 		this.arriveDate=arriveDate;
 		this.listOfFreeFirstClassSeats=new LinkedList<Integer>();
 		int count=1;
-		while (count<MaxNumberOfFirstClassSeats) {
+		while (count<=MaxNumberOfFirstClassSeats) {
 		this.listOfFreeFirstClassSeats.add(count++);
 		}
 		
 		this.listOfFreeEconomyClassSeats=new LinkedList<Integer>();
 		int sum =  this.MaxNumberOfEconomyClassSeats+this.MaxNumberOfFirstClassSeats;
-		while (count<sum) {
+		while (count<=sum) {
 			this.listOfFreeEconomyClassSeats.add(count++);		
 		}
 	}
