@@ -1,5 +1,5 @@
 package reservation;
 
 public enum TypeOfSeat {
-	FIRSTCLASS,ECONOMI;
+	ECONOMY_CLASS,FIRST_CLASS;
 }
