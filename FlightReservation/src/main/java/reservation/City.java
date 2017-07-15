@@ -1,16 +1,29 @@
 package reservation;
 
-
 import java.time.LocalTime;
+import java.util.*;
+import java.util.Scanner;
 import java.util.TimeZone;
 
 public class City {
-	private String name;
 	private LocalTime localTime;
+	private String name;
 	
 	public City(String name){
-		this.name = name;
-		this.localTime = getLocalTime();
+		setName(name);
+		this.localTime = findLocalTime(this.name);
+	}
+
+	public LocalTime getLocalTime() {
+		return localTime;
+	}
+
+	public LocalTime findLocalTime(String name) {		
+		for(String i :TimeZone.getAvailableIDs()){
+			if(i.toLowerCase().contains(name.toLowerCase()))
+				return LocalTime.now(TimeZone.getTimeZone (i).toZoneId()).withNano(0);
+		}
+		return null;
 	}
 
 	public String getName() {
@@ -18,15 +31,16 @@ public class City {
 	}
 
 	public void setName(String name) {
-		this.name = name;
-	}
-
-	public LocalTime getLocalTime() {
-		for(String i :TimeZone.getAvailableIDs()){
-			if(i.toLowerCase().contains(name.toLowerCase()))
-				return LocalTime.now(TimeZone.getTimeZone (i).toZoneId()).withNano(0);
+		if(findLocalTime(name)!=null) {
+			this.name = name;
+		}else {
+			System.out.println("There is no "+name+". Write the correct.");
+			setName(new Scanner(System.in).nextLine());
 		}
-		return null;
 	}
-	
+	@Override
+	public String toString() {
+
+		return String.format("%-8s", name);
+	}
 }
