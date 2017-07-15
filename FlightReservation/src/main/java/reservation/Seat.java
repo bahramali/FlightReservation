@@ -1,4 +1,4 @@
-package models;
+package reservation;
 
 public class Seat {
 	private String name;

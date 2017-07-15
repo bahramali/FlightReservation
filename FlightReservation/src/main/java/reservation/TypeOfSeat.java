@@ -1,4 +1,4 @@
-package models;
+package reservation;
 
 public enum TypeOfSeat {
 	FIRSTCLASS,ECONOMI;
