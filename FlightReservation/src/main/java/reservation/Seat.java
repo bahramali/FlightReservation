@@ -2,34 +2,43 @@ package reservation;
 
 public class Seat {
 	private String name;
+	private double price;
 	private TypeOfSeat typeOfSeat;
 	private boolean valid;
 	
-	public Seat(String name,TypeOfSeat typeOfSeat)
-	{
+	public Seat(String name,TypeOfSeat typeOfSeat,double price){
 		this.name = name;
 		this.typeOfSeat = typeOfSeat;
-		this.valid = true; //all seat from begin are valid.
+		this.valid = true;
+		this.price = price;
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public double getPrice() {
+		return price;
 	}
 
 	public TypeOfSeat getTypeOfSeat() {
 		return typeOfSeat;
 	}
 
-	public void setTypeOfSeat(TypeOfSeat typeOfSeat) {
-		this.typeOfSeat = typeOfSeat;
-	}
-
 	public boolean isValid() {
 		return valid;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
+	public void setTypeOfSeat(TypeOfSeat typeOfSeat) {
+		this.typeOfSeat = typeOfSeat;
 	}
 
 	public void setValid(boolean valid) {
@@ -38,8 +47,7 @@ public class Seat {
 	
 	@Override
 	public String toString() {
-		return name +" is "+ typeOfSeat+((valid)?" free":" busy");
+		return String.format("%-4s%-17s%-8.2f", name,typeOfSeat,price);
 	}
 	
-
 }
