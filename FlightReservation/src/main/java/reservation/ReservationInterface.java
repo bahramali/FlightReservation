@@ -1,9 +1,12 @@
 package reservation;
 
+import java.time.LocalDate;
+import java.util.List;
+
 public interface ReservationInterface {
 
-	public abstract ReserveSeat(Flight flight,boolean isItFirstClass);
 	
-	public abstract int getSeat() ;
-	public abstract int getCost() ;
+	public abstract List<ReserveSeat> getAllReservations();
+	
+
 }
