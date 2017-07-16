@@ -2,10 +2,11 @@ package flyingFood;
 
 import java.util.ArrayList;
 
-public interface FoodServiceInterface {
+public abstract class FoodMenuAbs {
 
-	ArrayList<Food> getFirstClassMenu();
+	ArrayList<Food> foodList = new ArrayList<Food>();
+	
+	abstract ArrayList<Food> getMenu();
 
-	ArrayList<Food> getEconomyClassMenu();
-
+	
 }
