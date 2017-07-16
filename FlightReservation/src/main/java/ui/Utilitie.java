@@ -59,9 +59,42 @@ public class Utilitie
 			return a;
 		}catch (InputMismatchException e) {
 			sc.nextLine();
-			return nextInt("Please Enter number");
+			return nextInt("Please Enter number.");
 		}	
 	}
+	public static double nextDouble(String s){
+		System.out.println(s);
+		double a;
+		try{
+			a= sc.nextDouble();
+			sc.nextLine();
+			return a;
+		}catch (InputMismatchException e) {
+			sc.nextLine();
+			return nextDouble("Please Enter a double number.");
+		}	
+	}
+	public static int nextInt(int start,int end){
+		int a;boolean loop;
+		try{
+			do
+			{
+				loop = false;
+				a= sc.nextInt();
+				sc.nextLine();
+				if(!(a>=start && a<=end)){
+					System.out.println("( between "+start+" and "+end+")");
+					loop = true;
+				}
+			} while (loop);
+			return a;
+		}catch (InputMismatchException e) {
+			sc.nextLine();
+			return nextInt(start,end,"Write a number!");
+		}
+	}
+	
+		
 	public static int nextInt(int start,int end,String s){
 		int a;boolean loop;
 		try{
