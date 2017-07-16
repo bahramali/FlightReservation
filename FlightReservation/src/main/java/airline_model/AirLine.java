@@ -8,23 +8,26 @@ public class AirLine {
 	private List<AirCraft> airCrafts;
 	private List<City> availableCities;
 	private List<String> flightNumbers;
-
-	public AirLine(String name){
+	private String perfix;
+	public AirLine(String name,String perfix){
+		this.perfix = perfix;
 		this.name = name;
 		availableCities = initialAvailableCities();
 		airCrafts = initialAirCrafts();
 		flightNumbers = generateFlightNumbers();
 	}
 	
-	public AirLine(String name,AirCraft airCraft){
+	public AirLine(String name,String perfix ,AirCraft airCraft){
 		this.name = name;
+		this.perfix = perfix;
 		availableCities = initialAvailableCities();
 		airCrafts = addAirCraft(airCraft);
 		flightNumbers = generateFlightNumbers();
 	}
 
-	public AirLine(String name,List<AirCraft> airCrafts){
+	public AirLine(String name,String perfix,List<AirCraft> airCrafts){
 		this.name = name;
+		this.perfix = perfix;
 		airCrafts.addAll(airCrafts);
 		availableCities = initialAvailableCities();
 		flightNumbers = generateFlightNumbers();
@@ -36,6 +39,16 @@ public class AirLine {
 
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	public String getPerfix()
+	{
+		return perfix;
+	}
+
+	public void setPerfix(String perfix)
+	{
+		this.perfix = perfix;
 	}
 
 	public List<AirCraft> getAirCrafts() {
@@ -75,9 +88,9 @@ public class AirLine {
 	private List<String> generateFlightNumbers()
 	{
 		List<String> flightsNum = new ArrayList<String>();
-		for (int i= 0 ; i<availableCities.size()*2;i++)
+		for (int i= 0 ; i<availableCities.size()*(availableCities.size()-1);i++)
 		{
-			flightsNum.add(new String("MAC"+(i+300)));
+			flightsNum.add(new String(perfix+(i+300)));
 		}
 		return new ArrayList<String>(flightsNum);
 	}
