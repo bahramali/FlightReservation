@@ -1,4 +1,4 @@
-package reservation;
+package airline_model;
 
 import java.time.LocalTime;
 import java.util.*;

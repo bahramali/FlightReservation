@@ -2,7 +2,7 @@ package flyingFood;
 
 import java.util.*;
 
-import reservation.TypeOfSeat;
+import airline_model.TypeOfSeat;
 
 public class MenuProducer
 {
