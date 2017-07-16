@@ -14,5 +14,4 @@ public class FirstClassMenu extends FoodMenuAbs {
 		foodList.add(new Drink("Champagne : Dom P�rignon", 10_000.00));
 		return foodList;
 	}
-
 }
