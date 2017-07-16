@@ -65,19 +65,20 @@ public class AirLine {
 		return new ArrayList<City>(availableCities);
 	}
 
-	public List<City> addCitiy(City city) {
-		availableCities.add(city);
+	public List<City> addCity(City city) {
+		this.availableCities.add(city);
 		return new ArrayList<City>(availableCities);
 	}
 
 	public List<City> addCity(String city) {
-		availableCities.add(new City(city));
+		this.availableCities.add(new City(city));
 		return new ArrayList<City>(availableCities);
 	}
 
 	public List<String> getFlightNumbers()
 	{
-		return new ArrayList<String>(flightNumbers);
+		
+		return generateFlightNumbers();
 	}
 	
 	public List<String> addFlightnumber(String flightnum){
@@ -87,8 +88,9 @@ public class AirLine {
 
 	private List<String> generateFlightNumbers()
 	{
+		
 		List<String> flightsNum = new ArrayList<String>();
-		for (int i= 0 ; i<availableCities.size()*(availableCities.size()-1);i++)
+		for (int i= 0 ; i<getAvailableCities().size()*(getAvailableCities().size()-1);i++)
 		{
 			flightsNum.add(new String(perfix+(i+300)));
 		}
@@ -125,6 +127,7 @@ public class AirLine {
 
 		return new ArrayList<City>(cities);	
 	}
+
 	@Override
 	public String toString()
 	{
