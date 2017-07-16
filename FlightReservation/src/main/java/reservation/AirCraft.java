@@ -3,27 +3,27 @@ package reservation;
 import java.util.*;
 
 public class AirCraft {
-	private double EPrice;
-	private final String flightNumber;
-	
-	private double FPrice;
 	private final String model;
+
+	private double EPrice;
+	private double FPrice;
+	
 	private int numOfESeat;
 	private int numOfFSeat;
 	
 	private List<Seat> seats;
 	
-	public AirCraft(int numOfFSeat, int numOfESeat, double FPrice,double EPrice,String model,String flightNumber){
+	public AirCraft(int numOfFSeat, int numOfESeat, double FPrice,double EPrice,String model){
+		
 		seats = gernerateListOfSeat(numOfFSeat,numOfESeat,FPrice,EPrice);
 		this.EPrice = EPrice;
 		this.FPrice = FPrice;
 		this.model = model;
-		this.flightNumber = flightNumber;
-		this.numOfESeat = numOfESeat;
-		this.numOfFSeat = numOfFSeat;
 	}
 	
 	private List<Seat> gernerateListOfSeat(int numOfFSeat,int numOfESeat,double FPrice,double EPrice){
+		this.numOfESeat = numOfESeat;
+		this.numOfFSeat = numOfFSeat;
 		
 		seats = new ArrayList<Seat>(numOfFSeat+numOfESeat);		
 		int row = 1;
@@ -39,15 +39,11 @@ public class AirCraft {
 			if((i+1)%4 ==0)
 				row++;
 		}
-		return seats;
+		return new ArrayList<Seat>(seats);
 	}
 
 	public double getEPrice() {
 		return EPrice;
-	}
-
-	public String getFlightNumber() {
-		return flightNumber;
 	}
 
 	public double getFPrice() {
@@ -92,6 +88,6 @@ public class AirCraft {
 	
 	@Override
 	public String toString() {
-		return String.format("FlightNumber %-5s has %-3d seats (%-3d firstclass and %-3d ecconomyClass)", flightNumber,(numOfESeat+numOfFSeat),numOfFSeat,numOfESeat);
+		return String.format("%-10s has %-3d seats (%-3d firstclass and %-3d ecconomyClass)",model,(numOfESeat+numOfFSeat),numOfFSeat,numOfESeat);
 	}
 }
