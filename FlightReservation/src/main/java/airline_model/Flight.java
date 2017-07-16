@@ -71,6 +71,6 @@ public class Flight
 	@Override
 	public String toString()
 	{
-		return String.format("%-6s from %-8sto %-8s in %-8s  %-6s ",flightNumber, origin,destination,departure_Date.toString(),departure_Time);
+		return String.format("%-6sfrom  %-6s to %-6s in %-8s  %-6s ",flightNumber, origin,destination,departure_Date.toString(),departure_Time);
 	}
 }
