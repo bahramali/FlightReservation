@@ -20,12 +20,14 @@ public class AirLine {
 		this.name = name;
 		availableCities = initialAvailableCities();
 		airCrafts = addAirCraft(airCraft);
+		flightNumbers = generateFlightNumbers();
 	}
 
 	public AirLine(String name,List<AirCraft> airCrafts){
 		this.name = name;
 		airCrafts.addAll(airCrafts);
 		availableCities = initialAvailableCities();
+		flightNumbers = generateFlightNumbers();
 	}
 
 	public String getName() {
@@ -82,6 +84,7 @@ public class AirLine {
 
 	private List<AirCraft> initialAirCrafts()
 	{
+		List<AirCraft> airCrafts = new ArrayList<AirCraft>();
 		airCrafts.add(new AirCraft(12, 32, 2200, 1700, "Boeing 717"));
 		airCrafts.add(new AirCraft( 8, 24, 1400, 700 , "Martin 4-0"));
 		airCrafts.add(new AirCraft(24, 32, 3200, 1500, "Airbus A320"));
@@ -109,5 +112,9 @@ public class AirLine {
 
 		return new ArrayList<City>(cities);	
 	}
-	
+	@Override
+	public String toString()
+	{
+		return String.format("%-8s with %-3daircrafts has %-2d flights number to %-2d cities", name,airCrafts.size(),flightNumbers.size(),availableCities.size());
+	}
 }
