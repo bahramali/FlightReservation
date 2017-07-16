@@ -4,7 +4,7 @@ import java.util.*;
 
 import reservation.TypeOfSeat;
 
-public class MenuFactory
+public class MenuProducer
 {
 	public List<Food> getMenu(TypeOfSeat typeOfSeat)
 	{
