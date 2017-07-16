@@ -7,12 +7,13 @@ public class AirLine {
 	private String name;
 	private List<AirCraft> airCrafts;
 	private List<City> availableCities;
-	
+	private List<String> flightNumbers;
 
 	public AirLine(String name){
 		this.name = name;
 		availableCities = initialAvailableCities();
 		airCrafts = initialAirCrafts();
+		flightNumbers = generateFlightNumbers();
 	}
 	
 	public AirLine(String name,AirCraft airCraft){
@@ -20,15 +21,33 @@ public class AirLine {
 		availableCities = initialAvailableCities();
 		airCrafts = addAirCraft(airCraft);
 	}
+
 	public AirLine(String name,List<AirCraft> airCrafts){
 		this.name = name;
 		airCrafts.addAll(airCrafts);
 		availableCities = initialAvailableCities();
 	}
-	
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public List<AirCraft> getAirCrafts() {
+		return new ArrayList<AirCraft>(airCrafts);
+	}
+
 	public List<AirCraft> addAirCraft(AirCraft aircraft){
 		airCrafts.add(aircraft);
 		return new ArrayList<AirCraft>(airCrafts);
+	}
+
+	public List<City> getAvailableCities()
+	{
+		return new ArrayList<City>(availableCities);
 	}
 
 	public List<City> addCitiy(City city) {
@@ -41,25 +60,26 @@ public class AirLine {
 		return new ArrayList<City>(availableCities);
 	}
 
-	public List<AirCraft> getAirCrafts() {
-		return new ArrayList<AirCraft>(airCrafts);
-	}
-
-	public List<City> getAllAvailableCities() {
-		return new ArrayList<City>(availableCities);
-	}
-
-	public String getName() {
-		return name;
-	}
-
-	public void setAllAvailableCities(List<City> someCities) {
-		availableCities = someCities;
-	}
-	public void setName(String name) {
-		this.name = name;
+	public List<String> getFlightNumbers()
+	{
+		return new ArrayList<String>(flightNumbers);
 	}
 	
+	public List<String> addFlightnumber(String flightnum){
+		flightNumbers.add(flightnum);
+		return new ArrayList<String>(flightNumbers);
+	}
+
+	private List<String> generateFlightNumbers()
+	{
+		List<String> flightsNum = new ArrayList<String>();
+		for (int i= 0 ; i<availableCities.size()*2;i++)
+		{
+			flightsNum.add(new String("MAC"+(i+300)));
+		}
+		return new ArrayList<String>(flightsNum);
+	}
+
 	private List<AirCraft> initialAirCrafts()
 	{
 		airCrafts.add(new AirCraft(12, 32, 2200, 1700, "Boeing 717"));
