@@ -4,26 +4,26 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class AirLine {
-	private List<AirCraft> airCrafts;
-	private List<City> cities;
 	private String name;
+	private List<AirCraft> airCrafts;
+	private List<City> availableCities;
 	
 
 	public AirLine(String name){
 		this.name = name;
-		cities = initialCities();
+		availableCities = initialAvailableCities();
 		airCrafts = initialAirCrafts();
 	}
 	
 	public AirLine(String name,AirCraft airCraft){
 		this.name = name;
-		cities = initialCities();
+		availableCities = initialAvailableCities();
 		airCrafts = addAirCraft(airCraft);
 	}
 	public AirLine(String name,List<AirCraft> airCrafts){
 		this.name = name;
 		airCrafts.addAll(airCrafts);
-		cities = initialCities();
+		availableCities = initialAvailableCities();
 	}
 	
 	public List<AirCraft> addAirCraft(AirCraft aircraft){
@@ -32,29 +32,29 @@ public class AirLine {
 	}
 
 	public List<City> addCitiy(City city) {
-		cities.add(city);
-		return new ArrayList<City>(cities);
+		availableCities.add(city);
+		return new ArrayList<City>(availableCities);
 	}
 
 	public List<City> addCity(String city) {
-		cities.add(new City(city));
-		return new ArrayList<City>(cities);
+		availableCities.add(new City(city));
+		return new ArrayList<City>(availableCities);
 	}
 
 	public List<AirCraft> getAirCrafts() {
 		return new ArrayList<AirCraft>(airCrafts);
 	}
 
-	public List<City> getAllCities() {
-		return new ArrayList<City>(cities);
+	public List<City> getAllAvailableCities() {
+		return new ArrayList<City>(availableCities);
 	}
 
 	public String getName() {
 		return name;
 	}
 
-	public void setAllCities(List<City> someCities) {
-		cities = someCities;
+	public void setAllAvailableCities(List<City> someCities) {
+		availableCities = someCities;
 	}
 	public void setName(String name) {
 		this.name = name;
@@ -62,15 +62,15 @@ public class AirLine {
 	
 	private List<AirCraft> initialAirCrafts()
 	{
-		airCrafts.add(new AirCraft(12, 32, 2200, 1700, "Boeing 717", "MC020"));
-		airCrafts.add(new AirCraft( 8, 24, 1400, 700 , "Martin 4-0", "MC216"));
-		airCrafts.add(new AirCraft(24, 32, 3200, 1500, "Airbus A320", "MC716"));
-		airCrafts.add(new AirCraft(18, 20, 3400, 1900, "Airbus A300", "MC121"));
-		airCrafts.add(new AirCraft(12, 24, 2000, 1300, "Boeing 314", "MC604"));
+		airCrafts.add(new AirCraft(12, 32, 2200, 1700, "Boeing 717"));
+		airCrafts.add(new AirCraft( 8, 24, 1400, 700 , "Martin 4-0"));
+		airCrafts.add(new AirCraft(24, 32, 3200, 1500, "Airbus A320"));
+		airCrafts.add(new AirCraft(18, 20, 3400, 1900, "Airbus A300"));
+		airCrafts.add(new AirCraft(12, 24, 2000, 1300, "Boeing 314"));
 		return new ArrayList<AirCraft>(airCrafts);
 	}
 
-	private List<City> initialCities(){
+	private List<City> initialAvailableCities(){
 		List<String> stringCities = new ArrayList<String>(Arrays.asList(TimeZone.getAvailableIDs()));
 
 		List<City> cities = new ArrayList<City>();
