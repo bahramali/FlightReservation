@@ -20,8 +20,11 @@ public class City {
 
 	public LocalTime findLocalTime(String name) {		
 		for(String i :TimeZone.getAvailableIDs()){
-			if(i.toLowerCase().contains(name.toLowerCase()))
+			if(i.toLowerCase().contains(name.toLowerCase())) {
+				String n = i;
+				this.name =n.substring(n.indexOf(name.toUpperCase().charAt(0)));
 				return LocalTime.now(TimeZone.getTimeZone (i).toZoneId()).withNano(0);
+			}
 		}
 		return null;
 	}
@@ -41,6 +44,6 @@ public class City {
 	@Override
 	public String toString() {
 
-		return String.format("%-8s", name);
+		return String.format("%-8s %-8s", name,localTime.toString());
 	}
 }
