@@ -54,12 +54,12 @@ public int 	getAEconomyClassSeat(){
 	return this.listOfFreeEconomyClassSeats.pollFirst();
 }
 	
-public boolean areThereFirstClassSeatsAvailable() {
-	return (!listOfFreeFirstClassSeats.isEmpty());
+public boolean noMoreFirstClassSeatsAvailable() {
+	return listOfFreeFirstClassSeats.isEmpty();
 }
 
-public boolean areThereEconomyClassSeatsAvailable() {
-	return (!listOfFreeEconomyClassSeats.isEmpty());
+public boolean noMoreEconomyClassSeatsAvailable() {
+	return listOfFreeEconomyClassSeats.isEmpty();
 }
 
 }

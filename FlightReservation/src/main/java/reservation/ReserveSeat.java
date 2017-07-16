@@ -17,13 +17,14 @@ public class ReserveSeat {
 		this.flightDate=flight.getDate();
 
 		if (isItFirstClass){
-			if (!flight.areThereFirstClassSeatsAvailable()) {
+			if (flight.noMoreFirstClassSeatsAvailable()) {
 				System.out.println("No free first class seats available");
 				System.out.println("Would you like to book a Economy Class seat instead? (Yes/No)");
 				inputText = keyboard.next();
 				if (inputText.equals("Yes")) {
-					if (flight.areThereEconomyClassSeatsAvailable()) {
+					if (flight.noMoreEconomyClassSeatsAvailable()) {
 					System.out.println("No free Economy class seats available");
+					this.seat=0;
 				} 	else {
 					this.seat=flight.getAEconomyClassSeat();}
 				}else {
@@ -33,12 +34,12 @@ public class ReserveSeat {
 				this.seat=flight.getAFirstClassSeat();
 			}
 		}else{
-			if (!flight.areThereEconomyClassSeatsAvailable()) {
+			if (flight.noMoreEconomyClassSeatsAvailable()) {
 				System.out.println("No free Economy class seats available");
 				System.out.println("Would you like to book a First Class seat instead? (Yes/No)");
 				inputText = keyboard.next();
 				if (inputText.equals("Yes")) {
-					if (!flight.areThereFirstClassSeatsAvailable()) {
+					if (flight.noMoreFirstClassSeatsAvailable()) {
 					System.out.println("No free first class seats available");
 					this.seat=0;
 				} 	else {
