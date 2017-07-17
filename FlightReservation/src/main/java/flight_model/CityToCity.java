@@ -3,12 +3,14 @@ package flight_model;
 import airline_model.City;
 
 public class CityToCity{
+		private String flightNumber;
 		private City city1;
 		private City city2;
 		private double price;
 		
-		public CityToCity(City city1, City city2,double price)
+		public CityToCity(String flightNumber,City city1, City city2,double price)
 		{
+			this.flightNumber= flightNumber;
 			this.city1 = city1;
 			this.city2 = city2;
 			this.price= price;
@@ -40,11 +42,21 @@ public class CityToCity{
 		{
 			this.price = price;
 		}
+		
+		public String getFlightNumber()
+		{
+			return flightNumber;
+		}
+
+		public void setFlightNumber(String flightNumber)
+		{
+			this.flightNumber = flightNumber;
+		}
 
 		@Override
 		public String toString()
 		{
-			return city1+" "+city2+String.format("%5.2f",price);
+			return flightNumber+" "+city1+""+city2+String.format("%5.2f",price);
 		}
 		
 	}
