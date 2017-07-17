@@ -5,10 +5,11 @@ import java.util.stream.Collectors;
 
 public class AirLine {
 	private String name;
+	private String perfix;
 	private List<AirCraft> airCrafts;
 	private List<City> availableCities;
 	private List<String> flightNumbers;
-	private String perfix;
+	
 	public AirLine(String name,String perfix){
 		this.perfix = perfix;
 		this.name = name;

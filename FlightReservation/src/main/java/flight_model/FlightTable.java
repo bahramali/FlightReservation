@@ -1,7 +1,10 @@
-package airline_model;
+package flight_model;
 
 import java.time.*;
 import java.util.*;
+
+import airline_model.AirLine;
+import airline_model.City;
 
 public class FlightTable {
 

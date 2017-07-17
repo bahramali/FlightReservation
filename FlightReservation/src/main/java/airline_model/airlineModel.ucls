@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<class-diagram version="1.2.0" icons="true" always-add-relationships="true" generalizations="true" realizations="true" 
+  associations="true" dependencies="true" nesting-relationships="true" router="FAN">  
+  <class id="1" language="java" name="airline_model.AirCraft" project="FlightReservation" 
+    file="/FlightReservation/src/main/java/airline_model/AirCraft.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="477" y="822"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="2" language="java" name="airline_model.AirLine" project="FlightReservation" 
+    file="/FlightReservation/src/main/java/airline_model/AirLine.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="480" y="239"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="3" language="java" name="airline_model.City" project="FlightReservation" 
+    file="/FlightReservation/src/main/java/airline_model/City.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="915" y="99"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="4" language="java" name="airline_model.Seat" project="FlightReservation" 
+    file="/FlightReservation/src/main/java/airline_model/Seat.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1022" y="899"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="5" language="java" name="flight_model.Flight" project="FlightReservation" 
+    file="/FlightReservation/src/main/java/flight_model/Flight.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1407" y="482"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <class id="6" language="java" name="flight_model.FlightTable" project="FlightReservation" 
+    file="/FlightReservation/src/main/java/flight_model/FlightTable.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="932" y="435"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <enumeration id="7" language="java" name="airline_model.TypeOfSeat" project="FlightReservation" 
+    file="/FlightReservation/src/main/java/airline_model/TypeOfSeat.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="-1" width="-1" x="1355" y="818"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </enumeration>  
+  <dependency id="8">    
+    <bendpoint x="952" y="606"/>    
+    <end type="SOURCE" refId="1"/>    
+    <end type="TARGET" refId="7"/>  
+  </dependency>  
+  <association id="9">    
+    <bendpoint x="1404" y="98"/>    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="10" name="destination"/>      
+      <multiplicity id="11" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="12">    
+    <bendpoint x="622" y="98"/>    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="13" name="availableCities"/>      
+      <multiplicity id="14" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="15">    
+    <bendpoint x="546" y="484"/>    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="16" name="airline"/>      
+      <multiplicity id="17" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="2" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="18">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="19" name="origin"/>      
+      <multiplicity id="20" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="21">    
+    <end type="SOURCE" refId="2" navigable="false">      
+      <attribute id="22" name="airCrafts"/>      
+      <multiplicity id="23" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="1" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <dependency id="24">    
+    <end type="SOURCE" refId="6"/>    
+    <end type="TARGET" refId="3"/>  
+  </dependency>  
+  <association id="25">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="26" name="flightsTable"/>      
+      <multiplicity id="27" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="5" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="28">    
+    <end type="SOURCE" refId="1" navigable="false">      
+      <attribute id="29" name="seats"/>      
+      <multiplicity id="30" minimum="0" maximum="2147483647"/>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="31">    
+    <end type="SOURCE" refId="4" navigable="false">      
+      <attribute id="32" name="typeOfSeat"/>      
+      <multiplicity id="33" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="7" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <classifier-display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
+    sort-features="false" accessors="true" visibility="true">    
+    <attributes public="true" package="true" protected="true" private="true" static="true"/>    
+    <operations public="true" package="true" protected="true" private="true" static="true"/>  
+  </classifier-display>  
+  <association-display labels="true" multiplicity="true"/>
+</class-diagram>
