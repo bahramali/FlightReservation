@@ -1,25 +1,41 @@
-package flight_model;
+package airline_model;
 
 import java.time.*;
 
-import airline_model.City;
-
 public class Flight
 {
+	private AirCraft airCraft;
 	private String flightNumber;
-	private City origin;
+	private City source;
 	private City destination;
 	private LocalDate departure_Date;
 	private LocalTime departure_Time;
 	
-	public Flight(String flightNumber,City origin, City destination,LocalDate departure_Date,LocalTime departureTime) {
+	public Flight(AirCraft airCraft,String flightNumber,City source, City destination,LocalDate departure_Date,LocalTime departureTime) {
+		this.airCraft= airCraft;
 		this.flightNumber = flightNumber;
-		this.origin = origin;
+		this.source = source;
+		this.destination = destination;
+		this.departure_Date = departure_Date;
+		this.departure_Time = departureTime;
+	}
+	public Flight(String flightNumber,City source, City destination,LocalDate departure_Date,LocalTime departureTime) {
+		this.airCraft= null;
+		this.flightNumber = flightNumber;
+		this.source = source;
 		this.destination = destination;
 		this.departure_Date = departure_Date;
 		this.departure_Time = departureTime;
 	}
 	
+	public AirCraft getAirCraft()
+	{
+		return airCraft;
+	}
+	public void setAirCraft(AirCraft airCraft)
+	{
+		this.airCraft = airCraft;
+	}
 	public String getFlightNumber()
 	{
 		return flightNumber;
@@ -30,14 +46,14 @@ public class Flight
 		this.flightNumber = flightNumber;
 	}
 
-	public City getOrigin()
+	public City getSource()
 	{
-		return origin;
+		return source;
 	}
 
-	public void setOrigin(City origin)
+	public void setSource(City origin)
 	{
-		this.origin = origin;
+		this.source = origin;
 	}
 
 	public City getDestination()
@@ -73,6 +89,6 @@ public class Flight
 	@Override
 	public String toString()
 	{
-		return String.format("%-6sfrom  %-6s to %-6s in %-8s  %-6s ",flightNumber, origin,destination,departure_Date.toString(),departure_Time);
+		return String.format("%-6sfrom  %-6s to %-6s in %-8s  %-6s",flightNumber, source,destination,departure_Date.toString(),departure_Time);
 	}
 }
