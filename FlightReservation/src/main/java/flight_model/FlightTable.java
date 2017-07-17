@@ -29,20 +29,5 @@ public class FlightTable {
 		}
 		return new HashMap<Integer,Flight>(flightsTable);
 	}
-//	public List<Flight> generateFlightTableForTreMonth(){
-//		List<Flight> onePeriodflightsTable = generateFlightTableForOnce();
-//		
-//		List<Flight> newFlight = new ArrayList<Flight>(onePeriodflightsTable);
-//		for(int k= 0;k<2;k++) {	
-//			LocalDate lastDate= newFlight.get(newFlight.size()-1).getDeparture_Date();
-//			
-//			for(int i= 0;i<onePeriodflightsTable.size();i++) {
-//				Flight temp = newFlight.get(i);	
-//				temp.setDeparture_Date(lastDate.plusDays(1));
-//				newFlight.add(temp);
-//			}
-//			onePeriodflightsTable = newFlight;
-//		}
-//		return new ArrayList<Flight>(newFlight);
-//	}
+
 }
