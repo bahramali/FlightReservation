@@ -23,7 +23,8 @@ public class City {
 			if(i.toLowerCase().contains(name.toLowerCase())) {
 				String n = i;
 				this.name =n.substring(n.indexOf(name.toUpperCase().charAt(0)));
-				return LocalTime.now(TimeZone.getTimeZone (i).toZoneId()).withNano(0);
+				LocalTime temp = LocalTime.now(TimeZone.getTimeZone (i).toZoneId()).withNano(0);
+				return LocalTime.of(temp.getHour(), temp.getMinute());
 			}
 		}
 		return null;

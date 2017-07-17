@@ -11,8 +11,10 @@ public class Flight
 	private LocalDate departure_Date;
 	private LocalTime departure_Time;
 	private double price;
-	
+	private static int id= 1;
+	private int fId;
 	public Flight(AirCraft airCraft,String flightNumber,City source, City destination,LocalDate departure_Date,LocalTime departureTime,double price) {
+		this.fId= id++;
 		this.airCraft= airCraft;
 		this.flightNumber = flightNumber;
 		this.source = source;
@@ -23,6 +25,7 @@ public class Flight
 	}
 	
 	public Flight(String flightNumber,City source, City destination,LocalDate departure_Date,LocalTime departureTime) {
+		this.fId= id++;
 		this.airCraft= null;
 		this.flightNumber = flightNumber;
 		this.source = source;
@@ -32,6 +35,16 @@ public class Flight
 		this.price = 0d;
 	}
 	
+	public int getfId()
+	{
+		return fId;
+	}
+
+	public void setfId(int fId)
+	{
+		this.fId = fId;
+	}
+
 	public double getPrice()
 	{
 		return price;
@@ -101,6 +114,6 @@ public class Flight
 	@Override
 	public String toString()
 	{
-		return String.format("%-6sfrom  %-6s to %-6s in %-8s  %-6s",flightNumber, source,destination,departure_Date.toString(),departure_Time);
+		return String.format("%-2d %-14s %-7s  from  %-7s to %-6s at %-10s %-6s %-5.2f",fId,airCraft.getModel(),flightNumber, source,destination,departure_Date.toString(),departure_Time,price);
 	}
 }

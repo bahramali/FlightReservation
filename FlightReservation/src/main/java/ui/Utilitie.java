@@ -8,6 +8,10 @@ public class Utilitie
 {
 	public static Scanner sc = new Scanner(System.in);
 	
+	public static void cls(int i) {
+		for(int a= 0;a<i;a++)
+			System.out.println();
+	}
 	public static boolean nextBoolean(){
 		String s= nextString("true or false?");
 		if(s.equalsIgnoreCase("true"))
