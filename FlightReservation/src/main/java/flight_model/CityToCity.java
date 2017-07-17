@@ -56,7 +56,7 @@ public class CityToCity{
 		@Override
 		public String toString()
 		{
-			return flightNumber+" "+city1+""+city2+String.format("%5.2f",price);
+			return flightNumber+" "+city1+" to "+city2+String.format(" %5.2f",price);
 		}
 		
 	}

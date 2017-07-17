@@ -15,7 +15,7 @@ public class CityToCityManager
 	{
 		this.airline = airline;	
 		this.cityToCity= cityToCityGenerator();
-		cityLinesGenerator();
+		
 	}
 
 	public AirLine getAirline()
@@ -38,33 +38,21 @@ public class CityToCityManager
 		this.cityToCity = cityToCity;
 	}
 
-	public Map<String, CityToCity> getCityLines()
-	{
-		return cityLinesGenerator();
-	}
 
 	private List<CityToCity> cityToCityGenerator()
 	{
 		List<CityToCity> fromTo = new ArrayList<CityToCity>();
 		List<City> cities = airline.getAvailableCities();
+		int count = 0;
 		for (City i:cities) {
 			for(City j:cities) {
 				if(!(i.getName().equals(j.getName()))) {
-					fromTo.add(new CityToCity(i, j,((int)(Math.random()*5000)/100)*100+700));
+					fromTo.add(new CityToCity(airline.getFlightNumbers().get(count),i, j,airline.priceGenerator().get(count++)));
 				}
 			}
 		}
 		return new ArrayList<CityToCity>(fromTo);
 	}
 
-	private Map<String,CityToCity> cityLinesGenerator(){
-		Map<String,CityToCity> line= new HashMap<String, CityToCity>();
-		List<CityToCity> cities = cityToCityGenerator();
-		List<String> flightNums = airline.getFlightNumbers();
-		int count = 0;	
-			for(CityToCity i:cities) {
-				line.put(flightNums.get(count++), i);
-			}
-		return new HashMap<String,CityToCity>(line);
-	}
+	
 }
