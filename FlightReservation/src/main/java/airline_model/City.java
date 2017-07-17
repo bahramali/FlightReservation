@@ -44,6 +44,11 @@ public class City {
 	@Override
 	public String toString() {
 
-		return String.format("%-8s %-8s", name,localTime.toString());
+		return String.format("%-19s", (name +"("+localTime.toString()+")"));
+	}
+
+	public int compareTo(City city1)
+	{
+		return city1.getName().length();
 	}
 }
