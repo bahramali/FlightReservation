@@ -10,15 +10,18 @@ public class Flight
 	private City destination;
 	private LocalDate departure_Date;
 	private LocalTime departure_Time;
+	private double price;
 	
-	public Flight(AirCraft airCraft,String flightNumber,City source, City destination,LocalDate departure_Date,LocalTime departureTime) {
+	public Flight(AirCraft airCraft,String flightNumber,City source, City destination,LocalDate departure_Date,LocalTime departureTime,double price) {
 		this.airCraft= airCraft;
 		this.flightNumber = flightNumber;
 		this.source = source;
 		this.destination = destination;
 		this.departure_Date = departure_Date;
 		this.departure_Time = departureTime;
+		this.price = price;
 	}
+	
 	public Flight(String flightNumber,City source, City destination,LocalDate departure_Date,LocalTime departureTime) {
 		this.airCraft= null;
 		this.flightNumber = flightNumber;
@@ -26,8 +29,17 @@ public class Flight
 		this.destination = destination;
 		this.departure_Date = departure_Date;
 		this.departure_Time = departureTime;
+		this.price = 0d;
 	}
 	
+	public double getPrice()
+	{
+		return price;
+	}
+	public void setPrice(double price)
+	{
+		this.price = price;
+	}
 	public AirCraft getAirCraft()
 	{
 		return airCraft;
