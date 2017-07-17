@@ -11,7 +11,7 @@ public class AirLine {
 	private List<String> flightNumbers;
 	
 	public AirLine(String name,String perfix){
-		this.perfix = perfix;
+		this.perfix = perfix.toUpperCase();
 		this.name = name;
 		availableCities = initialAvailableCities();
 		airCrafts = initialAirCrafts();
@@ -20,7 +20,7 @@ public class AirLine {
 	
 	public AirLine(String name,String perfix ,AirCraft airCraft){
 		this.name = name;
-		this.perfix = perfix;
+		this.perfix = perfix.toUpperCase();
 		availableCities = initialAvailableCities();
 		airCrafts = addAirCraft(airCraft);
 		flightNumbers = generateFlightNumbers();
@@ -28,7 +28,7 @@ public class AirLine {
 
 	public AirLine(String name,String perfix,List<AirCraft> airCrafts){
 		this.name = name;
-		this.perfix = perfix;
+		this.perfix = perfix.toUpperCase();
 		airCrafts.addAll(airCrafts);
 		availableCities = initialAvailableCities();
 		flightNumbers = generateFlightNumbers();
