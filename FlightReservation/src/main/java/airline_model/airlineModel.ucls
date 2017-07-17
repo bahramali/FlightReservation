@@ -46,8 +46,8 @@
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="6" language="java" name="flight_model.FlightTable" project="FlightReservation" 
-    file="/FlightReservation/src/main/java/flight_model/FlightTable.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="6" language="java" name="flight_model.FlightTable_old" project="FlightReservation" 
+    file="/FlightReservation/src/main/java/flight_model/FlightTable_old.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="-1" width="-1" x="932" y="435"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="true" signature="true" 
       sort-features="false" accessors="true" visibility="true">      

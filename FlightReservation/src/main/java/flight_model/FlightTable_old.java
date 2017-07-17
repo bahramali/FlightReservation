@@ -6,12 +6,12 @@ import java.util.*;
 import airline_model.AirLine;
 import airline_model.City;
 
-public class FlightTable {
+public class FlightTable_old {
 
 	private AirLine airline;
 	private Map<Integer,Flight> flightsTable = new HashMap<Integer,Flight>();
 
-	public FlightTable(AirLine airLine) {
+	public FlightTable_old(AirLine airLine) {
 		this.airline = airLine;
 	}
 
