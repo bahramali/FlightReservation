@@ -89,13 +89,37 @@ public class AirLine {
 
 	private List<String> generateFlightNumbers()
 	{
-		
 		List<String> flightsNum = new ArrayList<String>();
 		for (int i= 0 ; i<getAvailableCities().size()*(getAvailableCities().size()-1);i++)
 		{
 			flightsNum.add(new String(perfix+(i+300)));
 		}
 		return new ArrayList<String>(flightsNum);
+	}
+	
+	public List<Double> getPrice()
+	{
+		return new ArrayList<Double>(price);
+	}
+
+	public void setPrice(List<Double> price)
+	{
+		this.price = price;
+	}
+
+	private List<Double> price = new ArrayList<Double>();
+	
+	public List<Double> priceGenerator()
+	{
+		int sizeOfList= getAvailableCities().size()*(getAvailableCities().size()-1);
+		if(getPrice().size()!=sizeOfList) {
+			for (int i= 0 ; i<sizeOfList;i++)
+			{
+				price.add(new Double(((int)(Math.random()*5000)/100)*100+700));
+			}			
+		}else
+			price= getPrice();
+		return new ArrayList<Double>(price);
 	}
 
 	private List<AirCraft> initialAirCrafts()
