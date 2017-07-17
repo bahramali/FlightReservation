@@ -37,18 +37,22 @@ public class Main {
 		for (int count=0;count<6;count++) {
 			manySeats[count]=new ReserveSeat(firstFlight,true);
 			System.out.println(manySeats[count].getSeat());
+			System.out.println(manySeats[count].getCost());
 		}
 		for (int count=0;count<6;count++) {
 			manySeats[count]=new ReserveSeat(firstFlight,false);
 			System.out.println(manySeats[count].getSeat());
+			System.out.println(manySeats[count].getCost());
 		}
 		for (int count=0;count<12;count++) {
 			manySeats[count]=new ReserveSeat(secondFlight,true);
 			System.out.println(manySeats[count].getSeat());
+			System.out.println(manySeats[count].getCost());
 		}
 		for (int count=0;count<13;count++) {
 			manySeats[count]=new ReserveSeat(secondFlight,false);
 			System.out.println(manySeats[count].getSeat());
+			System.out.println(manySeats[count].getCost());
 		}
 		double number=20000.0;
 		System.out.println(number);
