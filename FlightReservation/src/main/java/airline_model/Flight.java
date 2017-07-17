@@ -11,7 +11,7 @@ public class Flight
 	private LocalDate departure_Date;
 	private LocalTime departure_Time;
 	private double price;
-	private static int id= 1;
+	public static int id= 1;
 	private int fId;
 	public Flight(AirCraft airCraft,String flightNumber,City source, City destination,LocalDate departure_Date,LocalTime departureTime,double price) {
 		this.fId= id++;
