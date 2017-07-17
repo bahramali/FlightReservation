@@ -2,6 +2,7 @@ package ui;
 
 import airline_model.AirCraft;
 import airline_model.AirLine;
+import flight_model.CityToCityManager;
 
 public class Menu
 {
@@ -9,9 +10,9 @@ public class Menu
 		System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println("1- Show the existed aircrafts:");
 		System.out.println("2- Add an aircraft to the airline:");
-		System.out.println("3- ");
-		System.out.println("4-");
-		System.out.println("5-");
+		System.out.println("3- Show all available cities:");
+		System.out.println("4- Add a new city for airline's destination:");
+		System.out.println("5- Show all destinations");
 		System.out.println("6");
 		System.out.println("7-");
 		System.out.println("8-");
@@ -43,10 +44,16 @@ public class Menu
 					temp.getSeats().forEach(System.out::println);		
 					break;
 				case 3:
+					airline.getAvailableCities().forEach(System.out::println);
 					break;
 				case 4:
+					airline.addCity(Utilitie.nextLine("Enter the name of city:"));
+					System.out.println("The new available destination.");
+					airline.getAvailableCities().forEach(System.out::println);
 					break;
 				case 5:
+					CityToCityManager cM = new CityToCityManager(airline);
+					cM.getCityToCity().forEach(System.out::println);
 					break;
 				case 0:
 					break breaking;
