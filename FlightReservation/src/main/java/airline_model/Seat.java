@@ -47,7 +47,7 @@ public class Seat {
 	
 	@Override
 	public String toString() {
-		return String.format("%-4s%-17s%-8.2f", name,typeOfSeat,price);
+		return String.format("%-4s %-17s %-5.2f %4s", name,typeOfSeat,price,(isValid())?"[ ]":"[#]");
 	}
 	
 }

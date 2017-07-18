@@ -3,8 +3,9 @@ package airline_model;
 import java.util.*;
 
 public class AirCraft {
+	private static int i= 1;
 	private final String model;
-
+	private int id;
 	private double EPrice;
 	private double FPrice;
 	
@@ -14,32 +15,21 @@ public class AirCraft {
 	private List<Seat> seats;
 	
 	public AirCraft(int numOfFSeat, int numOfESeat, double FPrice,double EPrice,String model){
-		
+		setId(i++);
 		seats = gernerateListOfSeat(numOfFSeat,numOfESeat,FPrice,EPrice);
 		this.EPrice = EPrice;
 		this.FPrice = FPrice;
 		this.model = model;
 	}
 	
-	private List<Seat> gernerateListOfSeat(int numOfFSeat,int numOfESeat,double FPrice,double EPrice){
-		this.numOfESeat = numOfESeat;
-		this.numOfFSeat = numOfFSeat;
-		
-		seats = new ArrayList<Seat>(numOfFSeat+numOfESeat);		
-		int row = 1;
-		for(int i = 0;i<numOfFSeat;i++){
-			char n =(char) ('A'+(i%2));
-			seats.add(new Seat((n+""+row),TypeOfSeat.FIRST_CLASS,FPrice));
-			if((i+1)%2 ==0)
-				row++;
-		}
-		for(int i =numOfFSeat ;i<numOfFSeat+numOfESeat;i++){
-			char n =(char) ('A'+(i%4));
-			seats.add(new Seat((n+""+row),TypeOfSeat.ECONOMY_CLASS,EPrice));
-			if((i+1)%4 ==0)
-				row++;
-		}
-		return new ArrayList<Seat>(seats);
+	public int getId()
+	{
+		return id;
+	}
+
+	public void setId(int id)
+	{
+		this.id = id;
 	}
 
 	public double getEPrice() {
@@ -86,8 +76,29 @@ public class AirCraft {
 		this.seats = seats;
 	}
 	
+	private List<Seat> gernerateListOfSeat(int numOfFSeat,int numOfESeat,double FPrice,double EPrice){
+		this.numOfESeat = numOfESeat;
+		this.numOfFSeat = numOfFSeat;
+		
+		seats = new ArrayList<Seat>(numOfFSeat+numOfESeat);		
+		int row = 1;
+		for(int i = 0;i<numOfFSeat;i++){
+			char n =(char) ('A'+(i%2));
+			seats.add(new Seat((n+""+row),TypeOfSeat.FIRST_CLASS,FPrice));
+			if((i+1)%2 ==0)
+				row++;
+		}
+		for(int i =numOfFSeat ;i<numOfFSeat+numOfESeat;i++){
+			char n =(char) ('A'+(i%4));
+			seats.add(new Seat((n+""+row),TypeOfSeat.ECONOMY_CLASS,EPrice));
+			if((i+1)%4 ==0)
+				row++;
+		}
+		return new ArrayList<Seat>(seats);
+	}
+
 	@Override
 	public String toString() {
-		return String.format("%-10s has %-3d seats (%-3d firstclass and %-3d ecconomyClass)",model,(numOfESeat+numOfFSeat),numOfFSeat,numOfESeat);
+		return String.format("%-2d%-10s has %-3d seats (%-3d firstclass and %-3d ecconomyClass)",id,model,(numOfESeat+numOfFSeat),numOfFSeat,numOfESeat);
 	}
 }

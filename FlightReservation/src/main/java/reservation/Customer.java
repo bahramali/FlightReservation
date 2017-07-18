@@ -10,6 +10,11 @@ public class Customer {
 		this.name = name;
 		this.passNumber = passNumber;
 	}
+	public Customer(String name) {
+
+		this.name = name;
+		this.passNumber = "AN23423042";
+	}
 
 	public String getName() {
 		return name;

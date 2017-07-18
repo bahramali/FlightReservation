@@ -4,9 +4,11 @@ import java.util.stream.Collectors;
 
 import airline_model.AirCraft;
 import airline_model.AirLine;
+import airline_model.TypeOfSeat;
 import flight_model.CityToCityManager;
 import flight_model.Flight;
 import flight_model.FlightTable;
+import reservation.Customer;
 
 public class Menu
 {
@@ -14,15 +16,16 @@ public class Menu
 
 		System.out.println("\n~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 		System.out.println("1- Show the existed aircrafts:");
-		System.out.println("2- Add an aircraft to the airline:");
-		System.out.println("3- Show all available cities:");
-		System.out.println("4- Add a new city for airline's destination:");
-		System.out.println("5- Show all destinations");
-		System.out.println("6- print all flight");
-		System.out.println("7- search a trip:");////AZADEH
-		System.out.println("8- reserve a trip:");
+		System.out.println("2- Show aircrafts seats");
+		System.out.println("3- Add an aircraft to the airline:");
+		System.out.println("4- Show all available cities:");
+		System.out.println("5- Add a new city for airline's destination:");
+		System.out.println("6- Show all destinations");
+		System.out.println("7- print all flight");
+		System.out.println("8- search a trip:");////AZADEH
+		System.out.println("9- reserve a trip:");
 		System.out.println("9-");
-		System.out.println();
+		
 		System.out.println();
 		System.out.println();
 		System.out.println();
@@ -44,6 +47,12 @@ public class Menu
 					airline.getAirCrafts().forEach(System.out::println);
 					break;
 				case 2:
+					airline.getAirCrafts().forEach(System.out::println);
+					int aircraftId = Utilitie.nextInt(1, airline.getAirCrafts().size(),"Choose the aircraft by id");
+					AirCraft aircraft = airline.getAirCrafts().stream().filter(s->s.getId()==aircraftId).collect(Collectors.toList()).get(0);
+					aircraft.getSeats().forEach(System.out::println);
+					break;
+				case 3:
 					AirCraft temp = new AirCraft(Utilitie.nextInt("Specify the number of firstClass seats:"),
 							Utilitie.nextInt("Specify the number of economyClass seats:"), 
 							Utilitie.nextInt("Specify the cost of firstClass seats:"), 
@@ -51,27 +60,27 @@ public class Menu
 					airline.addAirCraft(temp);
 					temp.getSeats().forEach(System.out::println);		
 					break;
-				case 3:
+				case 4:
 					airline.getAvailableCities().forEach(System.out::println);
 					break;
-				case 4:
+				case 5:
 
 					airline.addCity(Utilitie.nextLine("Enter the name of city:"));
 					System.out.println("The new available destination.");
 					airline.getAvailableCities().forEach(System.out::println);
 
 					break;
-				case 5:
+				case 6:
 					cM.getCityToCity().forEach(System.out::println);
 
 					break;
-				case 6:
+				case 7:
 					FlightTable ftable = new FlightTable(airline);
 					System.out.printf("%-4s%-14s%-15s%-20s%-20s%-18s%-7s\n","ID","Model","Fght_Num","Source","Destination","Departure date","Price");
 					System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
 					ftable.getFlightItems().forEach(System.out::println);
 					break;
-				case 7:
+				case 8:
 					noLoop:while(true) {
 						System.out.println("1- Search by destination:");
 						System.out.println("2- Search by source:");
@@ -102,16 +111,23 @@ public class Menu
 							default:
 								break;
 						}
-
 					}
 				break;
-				case 8:
+				case 9:
 					String name = Utilitie.nextLine("Enter flight number for booking:");
 					Flight flight =fT.getFlightItems().stream().filter(s->s.getFlightNumber().equalsIgnoreCase(name))
 							.collect(Collectors.toList()).get(0);
+					System.out.println(flight);
+					long numOfSeat = flight.getAirCraft().getSeats().stream().filter(s->s.isValid()).count();
+					long numOfFSeat = flight.getAirCraft().getSeats().stream().filter(s->s.isValid()&&s.getTypeOfSeat().equals(TypeOfSeat.FIRST_CLASS)).count();
+					long numOfESeat = flight.getAirCraft().getSeats().stream().filter(s->s.isValid()&&s.getTypeOfSeat().equals(TypeOfSeat.ECONOMY_CLASS)).count();
+					System.out.printf("Your choosen flight have %3d (%-3d firstClass,%-3d EconomyClass) valid seats.\n",numOfSeat,numOfFSeat,numOfESeat);
+					TypeOfSeat typeOfSeat= (Utilitie.nextString("Enter \"F\" for FirstClass or \"E\" for economyClass").equalsIgnoreCase("f"))?TypeOfSeat.FIRST_CLASS:TypeOfSeat.ECONOMY_CLASS;
+					
+					Customer customer = new Customer(Utilitie.nextLine("For reservation we need at you enter your name:"));
 					
 					break;
-				case 9:
+				case 10:
 
 					break;
 				case 0:
