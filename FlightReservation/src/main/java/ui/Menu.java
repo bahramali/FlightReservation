@@ -114,17 +114,22 @@ public class Menu
 					}
 				break;
 				case 9:
-					String name = Utilitie.nextLine("Enter flight number for booking:");
-					Flight flight =fT.getFlightItems().stream().filter(s->s.getFlightNumber().equalsIgnoreCase(name))
+					String flightNum = Utilitie.nextLine("Enter flight number for booking:");
+					Flight flight =fT.getFlightItems().stream().filter(s->s.getFlightNumber().equalsIgnoreCase(flightNum))
 							.collect(Collectors.toList()).get(0);
 					System.out.println(flight);
-					long numOfSeat = flight.getAirCraft().getSeats().stream().filter(s->s.isValid()).count();
-					long numOfFSeat = flight.getAirCraft().getSeats().stream().filter(s->s.isValid()&&s.getTypeOfSeat().equals(TypeOfSeat.FIRST_CLASS)).count();
-					long numOfESeat = flight.getAirCraft().getSeats().stream().filter(s->s.isValid()&&s.getTypeOfSeat().equals(TypeOfSeat.ECONOMY_CLASS)).count();
+					AirCraft airCtemp = flight.getAirCraft();
+					long numOfSeat = airCtemp.getSeats().stream().filter(s->s.isValid()).count();
+					long numOfFSeat = airCtemp.getSeats().stream().filter(s->s.isValid()&&s.getTypeOfSeat().equals(TypeOfSeat.FIRST_CLASS)).count();
+					long numOfESeat = airCtemp.getSeats().stream().filter(s->s.isValid()&&s.getTypeOfSeat().equals(TypeOfSeat.ECONOMY_CLASS)).count();
 					System.out.printf("Your choosen flight have %3d (%-3d firstClass,%-3d EconomyClass) valid seats.\n",numOfSeat,numOfFSeat,numOfESeat);
 					TypeOfSeat typeOfSeat= (Utilitie.nextString("Enter \"F\" for FirstClass or \"E\" for economyClass").equalsIgnoreCase("f"))?TypeOfSeat.FIRST_CLASS:TypeOfSeat.ECONOMY_CLASS;
+					airCtemp.getSeats().stream().limit(1).forEach(s->{
+						if(s.getTypeOfSeat().equals(typeOfSeat)&&s.isValid())
+							s.setValid(false);
+						});
 					
-					Customer customer = new Customer(Utilitie.nextLine("For reservation we need at you enter your name:"));
+					Customer customer = new Customer(Utilitie.nextLine("For reservation you should enter your name:"));
 					
 					break;
 				case 10:
