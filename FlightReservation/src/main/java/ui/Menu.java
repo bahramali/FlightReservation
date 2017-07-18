@@ -4,8 +4,8 @@ import java.util.stream.Collectors;
 
 import airline_model.AirCraft;
 import airline_model.AirLine;
-import airline_model.Flight;
 import flight_model.CityToCityManager;
+import flight_model.Flight;
 import flight_model.FlightTable;
 
 public class Menu

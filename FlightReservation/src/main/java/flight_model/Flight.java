@@ -1,6 +1,9 @@
-package airline_model;
+package flight_model;
 
 import java.time.*;
+
+import airline_model.AirCraft;
+import airline_model.City;
 
 public class Flight
 {
